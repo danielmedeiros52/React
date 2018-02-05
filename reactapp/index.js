@@ -24,7 +24,7 @@ pg.connect(conString, function(err, client, done) {
     if (err) {
       return console.error('error running query', err);
     }
-    console.log(result.rows.number);
+    console.log(result.console);
   
 });
 pg.end()
@@ -34,3 +34,4 @@ app.listen(3000, err => {
     console.log("Server on...")
 })
 
+//https://stackoverflow.com/questions/36120435/verify-database-connection-with-pg-promise-when-starting-an-app
