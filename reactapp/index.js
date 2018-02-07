@@ -12,11 +12,23 @@ const initOptions = {
 
 const pgp = require('pg-promise')(initOptions);
 const db = pgp('postgres://postgres:postgres@localhost/futiba')
-const init = async () => {
-  const connection = await db.connect()
-  console.log(connection)
-  app.use(account)
+
+const init =  () => {
+
+const connection = db.connect()
+
+console.log('DILMAAAAAAAAA')
+db.query('select*from users',[1],function(err,result){
+done()
+if(err){
+  console.log('deu erro')
 }
+console.log(result.row[0].number)
+})
+  app.use(account)
+  console.log(connection)
+}
+init()
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
@@ -25,3 +37,10 @@ app.listen(3000, err => {
 })
 
 //https://stackoverflow.com/questions/36120435/verify-database-connection-with-pg-promise-when-starting-an-app
+
+
+//#1 fullstack
+//https://www.youtube.com/watch?v=2oAS7MtMwqA
+
+//#2 postg
+//https://www.youtube.com/watch?v=EBw5E5DzAvE
